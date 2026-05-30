@@ -1,0 +1,73 @@
+{
+  "name": "@reupload/sdk",
+  "version": "0.1.0",
+  "description": "Official Node.js SDK for the Reupload public API",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./express": {
+      "types": "./dist/adapters/express.d.ts",
+      "import": "./dist/adapters/express.js"
+    },
+    "./fastify": {
+      "types": "./dist/adapters/fastify.d.ts",
+      "import": "./dist/adapters/fastify.js"
+    },
+    "./h3": {
+      "types": "./dist/adapters/h3.d.ts",
+      "import": "./dist/adapters/h3.js"
+    },
+    "./next": {
+      "types": "./dist/adapters/next.d.ts",
+      "import": "./dist/adapters/next.js"
+    },
+    "./solid": {
+      "types": "./dist/adapters/solid.d.ts",
+      "import": "./dist/adapters/solid.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/http.test.ts src/env.test.ts src/utils/multipart.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "reupload",
+    "upload",
+    "storage",
+    "sdk"
+  ],
+  "peerDependencies": {
+    "express": ">=4.18.0",
+    "fastify": ">=4.0.0",
+    "h3": ">=1.0.0",
+    "next": ">=13.0.0"
+  },
+  "peerDependenciesMeta": {
+    "express": { "optional": true },
+    "fastify": { "optional": true },
+    "h3": { "optional": true },
+    "next": { "optional": true }
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.15.21",
+    "fastify": "^5.3.3",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}

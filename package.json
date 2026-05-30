@@ -9,6 +9,15 @@
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Reupload-v2/reupload-sdk",
+    "directory": "node-packages/reupload-sdk"
+  },
+  "homepage": "https://docs.reupload.dev",
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

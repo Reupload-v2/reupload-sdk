@@ -104,7 +104,6 @@ export type UploadFileInput = {
   size: number;
 };
 
-/** Bytes accepted for direct upload and CDN PUT helpers. */
 export type UploadBody =
   | Buffer
   | Uint8Array
@@ -116,6 +115,18 @@ export type FileCategory = "image" | "video" | "audio" | "document" | "other";
 
 export type FileUploadedVia = "api" | "dashboard" | null;
 
+export type FileUploadedData = {
+  fileId: string;
+  projectId: string;
+  path: string;
+  name: string;
+  mimeType: string;
+  sizeBytes: number;
+  url: string;
+  urlExpiresAt: string | null;
+  isPublic: boolean;
+};
+
 export type FilePublic = {
   id: string;
   workspaceId: string;
@@ -126,7 +137,6 @@ export type FilePublic = {
   sizeBytes: number;
   category: FileCategory;
   isPublic: boolean;
-  /** Stable CDN URL when isPublic; null for private files. */
   publicUrl: string | null;
   uploadedVia: FileUploadedVia;
   createdAt: string;
@@ -155,6 +165,7 @@ export type FileAccess = {
 
 export type GetUploadSessionResult = {
   session: UploadSession;
+  file?: FileUploadedData;
 };
 
 export type GetFileResult = {

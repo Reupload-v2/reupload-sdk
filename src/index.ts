@@ -45,6 +45,7 @@ export type {
   FileAccessVariant,
   FileCategory,
   FilePublic,
+  FileUploadedData,
   FileUploadedVia,
   GetFileAccessResult,
   GetFileResult,

@@ -30,7 +30,7 @@ console.log(me.projects);
 |----------|----------|-------------|
 | `REUPLOAD_API_KEY` | Yes | API key (`ru_…`) |
 | `REUPLOAD_PROJECT_ID` | Yes | Default project UUID for uploads and route helpers |
-| `REUPLOAD_API_BASE_URL` | No | Default `https://api.reupload.dev/api/v1` |
+| `REUPLOAD_API_BASE_URL` | No | Default |
 
 ### Manual client
 

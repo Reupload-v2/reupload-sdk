@@ -158,16 +158,15 @@ export class UploadsResource {
   async waitForCompletion(
     uploadId: string,
     options: WaitForUploadOptions = {},
-  ): Promise<UploadSession> {
-    return waitForUploadSession(
-      async () => {
-        const { session } = await this.getSession(
-          uploadId,
-          options.signal === undefined ? {} : { signal: options.signal },
-        );
-        return session;
-      },
-      options,
-    );
+  ): Promise<GetUploadSessionResult> {
+    const init =
+      options.signal === undefined ? {} : { signal: options.signal };
+
+    await waitForUploadSession(async () => {
+      const { session } = await this.getSession(uploadId, init);
+      return session;
+    }, options);
+
+    return this.getSession(uploadId, init);
   }
 }
